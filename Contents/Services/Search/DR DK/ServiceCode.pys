@@ -1,0 +1,12 @@
+WebsiteURL = 'http://www.dr.dk'
+WebsiteTVURL = 'http://www.dr.dk/tv'
+API_VERSION = "1.1"
+API_URL = 'http://www.dr.dk/mu-online/api/'
+
+def Search(query):
+	oc = ObjectContainer()
+	oc.title1 = "dr.dk"
+ 	json = JSON.ObjectFromURL('http://www.dr.dk/mu-online/api/1.1/search/tv/programcards-with-asset/title/' + String.Quote(query, usePlus=False))
+ 	for items in json['Items']:
+ 		oc.add(EpisodeObject(title = items['Title'], thumb = items['PrimaryImageUri'], summary = items['Subtitle'], url = WebsiteTVURL + '/se/' + items['SeriesSlug'] + '/' + items['Slug'] ))
+	return oc

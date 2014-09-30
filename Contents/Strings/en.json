@@ -1,8 +1,23 @@
 {
-	"TopSpots":"Recomended", 
+	"DRTV topkarrusel":"Selected",
+	"DRTV anbefalet stor":"Recomended",
+	"Next":"Next",
+	"Now":"Now",
+	"Live":"Live",
+	"LastChance":"Last Chance",
 	"PopularList":"Popular",
-	"Live":"Watch live TV", 
-	"News":"News", 
-	"SelectedList":"Selected",
-	"LastChance":"Last chance"
+	"News":"News",
+	"Frontpage":"Frontpage",
+	"Alle kanaler (hurtig)":"All Channels (fast)",
+	"Enkelte Kanaler (overskuelig)":"Single Channels (better overview)",
+	"Programmer":"Programs",
+	"Søg efter programmer":"Search for programs",
+	"Søg efter...":"Search for...",
+	"Indstillinger":"Preferences",
+	"Afspil senere programmer":"Play later programs",
+	"Seneste programmer fra":"Latest programs from",
+	"Seneste":"Latest",
+	"Næste":"Next",
+	"Flere":"More",
+	"Mere...":"More..."
 }
