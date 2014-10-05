@@ -8,6 +8,9 @@
 	"PopularList":"Popular",
 	"News":"News",
 	"Frontpage":"Frontpage",
+	"TopSpots":"Top Spots",
+	"Popular":"Popular",
+	"SelectedList":"Selected List",
 	"Alle kanaler (hurtig)":"All Channels (fast)",
 	"Enkelte Kanaler (overskuelig)":"Single Channels (better overview)",
 	"Programmer":"Programs",
@@ -19,5 +22,9 @@
 	"Seneste":"Latest",
 	"Næste":"Next",
 	"Flere":"More",
-	"Mere...":"More..."
+	"Mere...":"More...",
+	"Sprog":"Language",
+	"Choose Channel":"Choose Channel",
+	"Play":"Play",
+	"RelationsList":"Related"
 }

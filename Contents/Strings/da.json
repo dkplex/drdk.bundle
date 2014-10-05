@@ -8,6 +8,9 @@
 	"PopularList":"Mest sete",
 	"News":"Nyheder",
 	"Frontpage":"Forside",
+	"TopSpots":"Top titler",
+	"Popolar":"Mest sete",
+	"SelectedList":"udvalgte",
 	"Alle kanaler (hurtig)":"Alle kanaler (hurtig)",
 	"Enkelte Kanaler (overskuelig)":"Enkelte Kanaler (overskuelig)",
 	"Programmer":"Programmer",
@@ -19,7 +22,10 @@
 	"Seneste":"Seneste",
 	"Næste":"Næste",
 	"Flere":"Flere",
-	"Mere...":"Mere...."
-	
+	"Mere...":"Mere....",
+	"Sprog":"Sprog",
+	"Choose Channel":"Vælg kanal",
+	"Play":"Afspil",
+	"RelationsList":"Relaterede"
 	
 }
