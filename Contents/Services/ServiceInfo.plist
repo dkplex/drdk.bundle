@@ -16,7 +16,7 @@
 		<dict>
 			<key>URLPatterns</key>
 			<array>
-				<string>(.+)dr.dk/tv/live/(.+)</string>
+				<string>^http://(.+\.)?dr.dk/tv/live/.+</string>
 			</array>
 		</dict>
 	</dict>

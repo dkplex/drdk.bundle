@@ -4,6 +4,6 @@
 		"label": "Vis programmer som:",
 		"type": "enum",
 		"values": ["Alle kanaler (hurtig)", "Enkelte Kanaler (overskuelig)"],
-		"default": "Alle kanaler (hurtig)" 
-        }
+		"default": "Alle kanaler (hurtig)"
+	}
 ]
