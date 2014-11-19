@@ -10,10 +10,11 @@ API_VERSION = "1.1"
 
 def MetadataObjectForURL(url):
 	vc = VideoClipObject()
-	slug = url.rsplit('/',1)[1]
-	json = JSON.ObjectFromURL(API_URL + API_VERSION + '/page/tv/live/' + slug)
 	
-
+	# Get slug from URL
+	slug = url.rsplit('/',1)[1]
+	# Request JSON for channel 
+	json = JSON.ObjectFromURL(API_URL + API_VERSION + '/page/tv/live/' + slug)
 	drNow = json['NowNext']['Now']
 	vc.title = unicode(drNow['Title'])
 	vc.summary = unicode(drNow['Description'])
@@ -21,6 +22,7 @@ def MetadataObjectForURL(url):
 	return vc
 
 def MediaObjectsForURL(url):
+	# Get slug from URL
 	slug = url.rsplit('/',1)[1]
 	return [MediaObject(protocol = 'hls',
 					video_codec = VideoCodec.H264,
@@ -31,9 +33,32 @@ def MediaObjectsForURL(url):
 	
 @indirect
 def PlayMedia(slug):
-	json = JSON.ObjectFromURL(API_URL + API_VERSION + '/channel/' + slug)
-	for StreamingServers in json['StreamingServers']:
+	# get JSON for channel
+	json = JSON.ObjectFromURL(API_URL + API_VERSION + '/page/tv/children/live/' + slug)
+	# Loop all StreamingServers
+	for StreamingServers in json['Channel']['StreamingServers']:
+		# Find HLS streams
 		if StreamingServers['LinkType'] == "HLS":
 			uri = StreamingServers['Server'] + '/' + StreamingServers['Qualities'][0]['Streams'][0]['Stream']
+	# Call Gemius to increase DR Most Viewed
+	gemius(json['NowNext']['Now']['ProgramCard']['Slug'])
+	
 	return IndirectResponse(VideoClipObject, key = HTTPLiveStreamURL(url = uri))
 	
+def gemius(id):
+	# construct JSON for DR most viewed HTTP POST 
+	json = JSON.ObjectFromString('{"id":"' + id + '","Client":"Plex.' + Client.Product + '.' + Client.Version + '"}')
+	# POST to increase DR most viewed list  
+	HTTP.Request(API_URL + API_VERSION + '/reporting/viewed', values = json, method = 'POST')
+	return None
+
+def NormalizeURL(url):
+	# remove pause url tag
+	return url.rsplit('#!',1)[0]
+
+def TestURLs():
+	test_urls = []
+	json= JSON.ObjectFromURL('http://www.dr.dk/mu-online/api/1.1/page/tv/front')
+	for channels in json['Live']:
+		test_urls.append(WebsiteTVURL + '/live/' + channels['ChannelSlug'])
+	return test_urls
