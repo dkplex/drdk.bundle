@@ -19,6 +19,7 @@ def MetadataObjectForURL(url):
 	vc.title = unicode(drNow['Title'])
 	vc.summary = unicode(drNow['Description'])
 	vc.art= drNow['ProgramCard']['PrimaryImageUri']
+	vc.thumb = drNow['ProgramCard']['PrimaryImageUri']
 	return vc
 
 def MediaObjectsForURL(url):
@@ -34,7 +35,7 @@ def MediaObjectsForURL(url):
 @indirect
 def PlayMedia(slug):
 	# get JSON for channel
-	json = JSON.ObjectFromURL(API_URL + API_VERSION + '/page/tv/children/live/' + slug)
+	json = JSON.ObjectFromURL(API_URL + API_VERSION + '/page/tv/live/' + slug)
 	# Loop all StreamingServers
 	for StreamingServers in json['Channel']['StreamingServers']:
 		# Find HLS streams
